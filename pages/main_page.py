@@ -12,7 +12,7 @@ class MainPage(BasePage):
 
     @allure.step('click_on_profile')
     def click_on_profile(self):
-        self.find_element_and_click_2(MainPageLocators.PROFILE)
+        self.find_element_and_click(MainPageLocators.PROFILE)
 
     @allure.step('fill_the_login_form')
     def fill_the_login_form(self):
@@ -65,14 +65,13 @@ class MainPage(BasePage):
         class_to_check = self.find_element_get_class(MainPageLocators.MODAL)
         assert 'Modal_modal_opened__3ISw4' not in class_to_check
 
-    @allure.step('Добавить ингридиент в заказ')
+    @allure.step('add_filling_to_order')
     def add_filling_to_order(self):
         self.drag_and_drop_on_element(MainPageLocators.BUN, MainPageLocators.ORDER_BASKET)
 
-    @allure.step('Добавить ингридиент в заказ')
+    @allure.step('click_on_order_button')
     def click_on_order_button(self):
         self.find_element_and_click(MainPageLocators.MAKE_AN_ORDER)
-
 
     @allure.step('get_count_value')
     def check_count_value_zero(self):
@@ -83,7 +82,6 @@ class MainPage(BasePage):
     def check_count_value_increased(self):
         text = self.find_element_get_text(MainPageLocators.COUNTER)
         assert text == '2'
-        #исправить f"{order_id}"
 
     @allure.step('Получение ORDER_ID')
     def get_with_order_id(self):
@@ -92,11 +90,11 @@ class MainPage(BasePage):
             order_id = self.find_element_get_text(MainPageLocators.ORDER_ID)
         return f"{order_id}"
 
-    @allure.step("Закрыть модальное окно после создания заказа")
+    @allure.step("click_close_modal_order")
     def click_close_modal_order(self):
         self.find_element_and_click(MainPageLocators.CLOSE_MODAL_ORDER)
 
-    @allure.title('Создание заказа')
+    @allure.title('make_order_and_get_id')
     def make_order_and_get_id(self):
         self.login_into_profile()
         self.add_filling_to_order()

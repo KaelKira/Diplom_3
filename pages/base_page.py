@@ -19,9 +19,6 @@ class BasePage:
     def find_element_and_click(self, locator, time=10):
         WebDriverWait(self.driver, time).until(expected_conditions.element_to_be_clickable(locator), message = f'Not find element{locator}').click()
 
-    def find_element_and_click_2(self, locator, time=10):
-        WebDriverWait(self.driver, time).until(expected_conditions.presence_of_element_located(locator), message = f'Not find element{locator}').click()
-
     def find_element_get_text(self, locator, time=10):
         return WebDriverWait(self.driver, time).until(expected_conditions.visibility_of_element_located(locator), message = f'Not find element{locator}').text
 

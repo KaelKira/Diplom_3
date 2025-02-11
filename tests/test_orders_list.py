@@ -1,11 +1,7 @@
-import time
-
 import allure
 from selenium.webdriver.common.by import By
-
 from pages.main_page import MainPage
 from pages.orders_list_page import OrderListPage
-from pages.profile_page import ProfilePage
 
 
 class TestOrderListPage:
@@ -63,6 +59,5 @@ class TestOrderListPage:
         order_id = main_page.make_order_and_get_id()
         main_page.click_close_modal_order()
         main_page.click_orders_list()
-        time.sleep(3)
         orders_list_in_progress = orders_list.get_orders_in_progress()
         assert order_id in orders_list_in_progress
