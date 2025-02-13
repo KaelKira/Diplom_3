@@ -22,8 +22,8 @@ class TestUserProfile:
         profile.click_on_history_list()
         profile.check_history()
 
-    @allure.title('Профиль - переход на историю заказов')
-    def test_history(self, driver):
+    @allure.title('Выход из аккаунта')
+    def test_profile_logout(self, driver):
         main_page = MainPage(driver)
         profile = ProfilePage(driver)
         main_page.login_into_profile()
